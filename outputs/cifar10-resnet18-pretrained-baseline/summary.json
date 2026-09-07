@@ -1,0 +1,11 @@
+{
+  "best_epoch": 9,
+  "best_validation_accuracy": 0.8804,
+  "device": "mps",
+  "duration_seconds": 1066.1373671250003,
+  "experiment_name": "cifar10-resnet18-pretrained-baseline",
+  "run_directory": "/Users/nafas/Desktop/project semantic/project/outputs/cifar10-resnet18-pretrained-baseline",
+  "seed": 42,
+  "test_accuracy": 0.8707,
+  "test_loss": 0.8317028121948242
+}

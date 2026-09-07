@@ -11,9 +11,7 @@ htmlcov/
 .coverage
 tmp/
 
-# Research artifacts
-data/
-outputs/
+# Reproducible local-only artifacts
 checkpoints/
 *.pt
 *.pth
@@ -21,3 +19,11 @@ checkpoints/
 
 # Keep source documents tracked.
 !*.pdf
+
+# Keep the recorded research artifacts tracked (large binaries use Git LFS).
+!outputs/
+!outputs/**
+!outputs/**/*.pt
+
+# Never publish macOS Finder metadata, including inside re-included directories.
+**/.DS_Store

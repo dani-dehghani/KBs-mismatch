@@ -1,0 +1,36 @@
+{
+  "data": {
+    "batch_size": 128,
+    "download": true,
+    "image_size": 224,
+    "name": "cifar10",
+    "normalization": "imagenet",
+    "num_classes": 10,
+    "num_workers": 4,
+    "root": "data",
+    "test_size": 64,
+    "train_size": 128,
+    "val_fraction": 0.1,
+    "val_size": 64
+  },
+  "experiment_name": "cifar10-resnet18-pretrained-baseline",
+  "model": {
+    "embedding_dim": 128,
+    "freeze_backbone": true,
+    "name": "resnet18",
+    "pretrained": true,
+    "small_input": false
+  },
+  "output_dir": "outputs",
+  "seed": 42,
+  "training": {
+    "deterministic": true,
+    "device": "auto",
+    "epochs": 10,
+    "label_smoothing": 0.1,
+    "learning_rate": 0.001,
+    "limit_eval_batches": null,
+    "limit_train_batches": null,
+    "weight_decay": 0.0005
+  }
+}

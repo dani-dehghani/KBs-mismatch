@@ -1,0 +1,60 @@
+{
+  "class_counts": [
+    4470,
+    4517,
+    4522,
+    4522,
+    4507,
+    4503,
+    4483,
+    4482,
+    4489,
+    4505
+  ],
+  "class_names": [
+    "airplane",
+    "automobile",
+    "bird",
+    "cat",
+    "deer",
+    "dog",
+    "frog",
+    "horse",
+    "ship",
+    "truck"
+  ],
+  "codebook_sha256": "144bf74665c951e470b361081082e83645685a94d343b2f873047574ab3c5599",
+  "codebook_shape": [
+    10,
+    128
+  ],
+  "device": "mps",
+  "drift": {
+    "max_absolute_difference": 0.0,
+    "mean_cosine_distance": 0.0,
+    "mean_euclidean_distance": 0.0
+  },
+  "exactly_equal": true,
+  "experiment_name": "cifar10-resnet18-pretrained-baseline",
+  "independent_storage": true,
+  "output_directory": "/Users/nafas/Desktop/project semantic/project/outputs/cifar10-resnet18-pretrained-baseline/aligned_codebook",
+  "receiver_sha256": "144bf74665c951e470b361081082e83645685a94d343b2f873047574ab3c5599",
+  "seed": 42,
+  "source_checkpoint": "/Users/nafas/Desktop/project semantic/project/outputs/cifar10-resnet18-pretrained-baseline/best.pt",
+  "source_epoch": 9,
+  "test": {
+    "classifier_accuracy": 0.8707,
+    "receiver_accuracy": 0.8536,
+    "samples": 10000,
+    "transmitter_accuracy": 0.8536,
+    "transmitter_receiver_agreement": 1.0
+  },
+  "transmitter_sha256": "144bf74665c951e470b361081082e83645685a94d343b2f873047574ab3c5599",
+  "validation": {
+    "classifier_accuracy": 0.8804,
+    "receiver_accuracy": 0.8656,
+    "samples": 5000,
+    "transmitter_accuracy": 0.8656,
+    "transmitter_receiver_agreement": 1.0
+  }
+}

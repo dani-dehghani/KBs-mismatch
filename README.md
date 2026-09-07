@@ -77,14 +77,16 @@ output/pdf/                    generated English and Persian reports
 Nafas_Mohebi_work-1.pdf        original project brief
 ```
 
-Generated datasets, virtual environments, model checkpoints, and raw run
-directories are intentionally excluded from Git. They can be reproduced with
-the commands below.
+The recorded CIFAR-10 files, model checkpoint, and codebook tensors are included
+through Git Large File Storage (Git LFS). Virtual environments, caches, and
+temporary renders remain excluded because they are machine-specific and can be
+recreated from `uv.lock`.
 
 ## Requirements
 
 - Python 3.11 or newer
 - [`uv`](https://docs.astral.sh/uv/) (recommended)
+- [Git LFS](https://git-lfs.com/)
 - Internet access for the first CIFAR-10 and pretrained-weight download
 - CPU, CUDA GPU, or Apple Silicon MPS
 
@@ -98,6 +100,8 @@ Clone the repository and install the locked dependencies:
 ```bash
 git clone https://github.com/dani-dehghani/KBs-mismatch.git
 cd KBs-mismatch
+git lfs install
+git lfs pull
 uv sync --extra dev --extra report
 ```
 
@@ -134,8 +138,9 @@ research result.
 
 ## Reproduce the CIFAR-10 classifier baseline
 
-The first run downloads CIFAR-10 into the ignored `data/` directory and obtains
-the official torchvision ImageNet weights if they are not already cached:
+The repository includes the recorded CIFAR-10 data through Git LFS. If those
+objects were not pulled, torchvision downloads CIFAR-10 automatically. The
+official torchvision ImageNet weights are obtained if they are not cached:
 
 ```bash
 uv run semantic-drift --config configs/baseline/cifar10.yaml
@@ -185,7 +190,7 @@ training split to create the prototypes. It then verifies exact tensor equality,
 independent storage, transmitter/receiver agreement, classifier accuracy, and
 nearest-prototype accuracy.
 
-Generated artifacts:
+Generated artifacts, including the recorded run committed through Git LFS:
 
 ```text
 outputs/cifar10-resnet18-pretrained-baseline/aligned_codebook/
@@ -249,7 +254,8 @@ requests. Tests use the synthetic dataset and do not download CIFAR-10.
 - Validation selects the checkpoint; the test set is reserved for final
   evaluation.
 - Codebook prototypes use training embeddings only.
-- Raw outputs and checkpoints are reproducible but intentionally not committed.
+- The recorded raw outputs, checkpoint, and dataset are stored with Git LFS;
+  future runs should only be committed when they represent a deliberate result.
 - The current numerical results are a single-seed reference, not a variance
   estimate. Future research runs should report 3-5 seeds.
 
@@ -270,6 +276,7 @@ requests. Tests use the synthetic dataset and do not download CIFAR-10.
 
 ```bash
 uv sync --extra dev --extra report
+git lfs pull
 uv run semantic-drift --config configs/smoke/synthetic.yaml
 uv run semantic-drift --config configs/baseline/cifar10.yaml
 uv run semantic-codebook \
