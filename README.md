@@ -122,6 +122,16 @@ python -m pip install --upgrade pip
 python -m pip install -e '.[dev,report]'
 ```
 
+### Optional local macOS environment snapshot
+
+The repository's Releases page also contains a compressed snapshot of the
+original Apple Silicon development environment, caches, and temporary report
+renders. This archive is not required to run the project and is not portable to
+Linux, Windows, or Intel macOS. Prefer `uv sync` for normal installation.
+
+See [`LOCAL_ENVIRONMENT.md`](LOCAL_ENVIRONMENT.md) for the download link,
+contents, checksum, and restoration instructions.
+
 ## Quick verification
 
 Run the synthetic smoke experiment. It exercises the complete software pipeline
