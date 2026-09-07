@@ -1,0 +1,28 @@
+experiment_name: cifar10-resnet18-pretrained-baseline
+seed: 42
+output_dir: outputs
+
+data:
+  name: cifar10
+  root: data
+  batch_size: 128
+  num_workers: 4
+  val_fraction: 0.1
+  download: true
+  image_size: 224
+  normalization: imagenet
+
+model:
+  name: resnet18
+  embedding_dim: 128
+  pretrained: true
+  freeze_backbone: true
+  small_input: false
+
+training:
+  epochs: 10
+  learning_rate: 0.001
+  weight_decay: 0.0005
+  label_smoothing: 0.1
+  device: auto
+  deterministic: true

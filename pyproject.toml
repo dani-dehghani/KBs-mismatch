@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "semantic-drift"
+version = "0.1.0"
+description = "Budget-aware drift detection and realignment for semantic communication"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.26",
+  "PyYAML>=6.0",
+  "torch>=2.3",
+  "torchvision>=0.18",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.6",
+]
+report = [
+  "arabic-reshaper>=3.0",
+  "python-bidi>=0.6",
+  "reportlab>=4.4.9",
+]
+
+[project.scripts]
+semantic-drift = "semantic_drift.cli:main"
+semantic-codebook = "semantic_drift.codebook_cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/semantic_drift"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

@@ -1,0 +1,23 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+*.egg-info/
+build/
+dist/
+htmlcov/
+.coverage
+tmp/
+
+# Research artifacts
+data/
+outputs/
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+
+# Keep source documents tracked.
+!*.pdf
